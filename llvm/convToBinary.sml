@@ -20,7 +20,28 @@ end
 structure convertToBinary:binaryPrinting = struct
     type t = string list;
 
-    fun conv_mod (ast.Module x) = ["00001011000011000000110011101101"];   (* magic number *)
+    fun add_def [] = []
+       |add_def (x::xs) = ["def"] 
+
+    fun add_header x = ["4243 c0de " ^ "0000 0000 " ^ "0000 1000 " ^ "size " ^ "0000 0000 "];
+
+    fun get_bit x = case x of
+                   (#"a")  => "21"
+                  | _   => "01";
+
+    fun get_binary [] = ""
+       |get_binary (x::xs) = (get_bit x) ^ (get_binary xs);
+
+    fun get_encode "" =  ""
+       |get_encode x  = get_binary (String.explode x);           
+
+    fun add_triple (SOME x) = [get_encode x]
+       |add_triple NONE     = [];
+
+    fun add_dataLayout (SOME x) = []
+       |add_dataLayout NONE     = [];
+
+    fun conv_mod (ast.Module x) = (add_header x) @ (add_triple (#moduleTargetTriple x)) @ (add_dataLayout (#moduleDatalayout x)) @ (add_def (#moduleDefination x));
 end;
 
 val d = convertToBinary.conv_mod defaultModule;
