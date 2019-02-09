@@ -29,17 +29,6 @@ structure convertToBinary:binaryPrinting = struct
           g' n ""
         end
 
-    fun addGlobalVar x = "0101 " ^ "0111" ^ "001111"; 
-
-    fun add_global (ast.GlobalVariable x) = [addGlobalVar x]
-       |add_global (ast.Function x)       = ["fn"] 
-       |add_global _                      = [""];
-
-    fun add_def [] = []
-       |add_def (x::xs) = case x of
-                ast.GlobalDefinition y => ((add_global y) @ (add_def xs)); 
-
-    fun add_header x = ["4243 c0de " ^ "0000 0000 " ^ "0000 1000 " ^ "1111 1111 " ^ "0000 0000 "];
 
     fun get_bit x = case x of
                    (#"a")  => "000000"
@@ -74,41 +63,108 @@ structure convertToBinary:binaryPrinting = struct
                   |(#"D")  => "011101"
                   |(#"E")  => "011110"
                   |(#"F")  => "011111"
-                  |(#"G")  => "100001 000000"
-                  |(#"H")  => "100001 000001"
-                  |(#"I")  => "100001 000010"
-                  |(#"J")  => "100001 000011"
-                  |(#"K")  => "100001 000100"
-                  |(#"L")  => "100001 000101"
-                  |(#"M")  => "100001 000110"
-                  |(#"N")  => "100001 000111"
-                  |(#"O")  => "100001 001000"
-                  |(#"P")  => "100001 001001"
-                  |(#"Q")  => "100001 001010"
-                  |(#"R")  => "100001 001011"
-                  |(#"S")  => "100001 001100"
-                  |(#"T")  => "100001 001101"
-                  |(#"U")  => "100001 001110"
-                  |(#"V")  => "100001 001111"
-                  |(#"W")  => "100001 010000"
-                  |(#"X")  => "100001 010001"
-                  |(#"Y")  => "100001 010010"
-                  |(#"Z")  => "100001 010011"
-                  |(#"0")  => "100001 010100"
-                  |(#"1")  => "100001 010101"
-                  |(#"2")  => "100001 010110"
-                  |(#"3")  => "100001 010111"
-                  |(#"4")  => "100001 011000"
-                  |(#"5")  => "100001 011001"
-                  |(#"6")  => "100001 011010"
-                  |(#"7")  => "100001 011011"
-                  |(#"8")  => "100001 011100"
-                  |(#"9")  => "100001 011101"
-                  |(#".")  => "100001 011110"
-                  |(#"_")  => "100001 011111";
+                  |(#"G")  => "100000"
+                  |(#"H")  => "100001"
+                  |(#"I")  => "100010"
+                  |(#"J")  => "100011"
+                  |(#"K")  => "100100"
+                  |(#"L")  => "100101"
+                  |(#"M")  => "100110"
+                  |(#"N")  => "100111"
+                  |(#"O")  => "101000"
+                  |(#"P")  => "101001"
+                  |(#"Q")  => "101010"
+                  |(#"R")  => "101011"
+                  |(#"S")  => "101100"
+                  |(#"T")  => "101101"
+                  |(#"U")  => "101110"
+                  |(#"V")  => "101111"
+                  |(#"W")  => "110000"
+                  |(#"X")  => "110001"
+                  |(#"Y")  => "110010"
+                  |(#"Z")  => "110011"
+                  |(#"0")  => "110100"
+                  |(#"1")  => "110101"
+                  |(#"2")  => "110110"
+                  |(#"3")  => "110111"
+                  |(#"4")  => "111000"
+                  |(#"5")  => "111001"
+                  |(#"6")  => "111010"
+                  |(#"7")  => "111011"
+                  |(#"8")  => "111100"
+                  |(#"9")  => "111101"
+                  |(#".")  => "111110"
+                  |(#"_")  => "111111";
 
     fun get_binary [] = ""
        |get_binary (x::xs) = (get_bit x) ^ " " ^ (get_binary xs);
+
+    fun addLinkage x = case x of
+                  ast.Private             => get_binary(String.explode "Private")
+                | ast.Internal            => get_binary(String.explode "Internal")
+                | ast.AvailableExternally => get_binary(String.explode "AvailableExternally")
+                | ast.LinkOnce            => get_binary(String.explode "LinkOnce")
+                | ast.Weak                => get_binary(String.explode "Weak")
+                | ast.Common              => get_binary(String.explode "Common")
+                | ast.Appending           => get_binary(String.explode "Appending")
+                | ast.ExternWeak          => get_binary(String.explode "ExternWeak")
+                | ast.LinkOnceODR         => get_binary(String.explode "LinkOnceODR")
+                | ast.WeakODR             => get_binary(String.explode "WeakODR")
+                | ast.External            => get_binary(String.explode "External"); 
+
+    fun addVisibility x = case x of
+                  ast.Default   => get_binary(String.explode "Default")
+                | ast.Hidden    => get_binary(String.explode "Hidden")
+                | ast.Protected => get_binary(String.explode "Protected");
+
+    fun addUnamed NONE     = ""
+       |addUnamed (SOME x) = case x of 
+                     ast.LocalAddr  => get_binary(String.explode "LocalAddr")
+                   | ast.GlobalAddr => get_binary(String.explode "GlobalAddr");
+
+    fun addStorage NONE     = ""
+       |addStorage (SOME x) = case x of 
+                     ast.Import  => get_binary(String.explode "Import")
+                   | ast.Export  => get_binary(String.explode "Export");
+
+    fun addCombat NONE     = ""
+       |addCombat (SOME x) = get_binary(String.explode x);
+
+    fun get_float_type x = case x of
+                ast.HalfFP      => "half" 
+               |ast.FloatFP     => "float"
+               |ast.DoubleFP    => "double"
+               |ast.FP128FP     => "fp128"
+               |ast.X86_FP80FP  => "x86_fp80"
+               |ast.PPC_FP128FP => "ppc_fp128";
+
+    fun add_type x = case x of
+                (ast.VoidType)       => get_binary(String.explode "void")
+               |(ast.IntegerType y)  => get_binary(String.explode ("i" ^ IntInf.toString(y)))
+               |(ast.FloatingType x) => get_binary(String.explode  (get_float_type(x)))
+               |_                    => "";
+
+    fun addIsCons x = case x of
+                  false => "000000"
+                | true  => "000001";
+
+    fun addValue (SOME (ast.Int x))   = get_binary(String.explode (IntInf.toString(x)))
+       |addValue (SOME (ast.Float x)) = get_binary(String.explode (Real.toString(x)));
+
+    fun addSection NONE     = ""
+       |addSection (SOME x) = get_binary(String.explode x);
+
+    fun addAllig x = get_binary(String.explode (IntInf.toString(x)));
+
+    fun add_global (ast.GlobalVariable x) = ["0101 " ^ "0111" ^ "001100" ^ " strtab offset " ^ " strtab size " ^ " " ^ add_type(#types(x)) ^ " " ^ addIsCons(#isconstant(x)) ^ " " ^ addValue(#initlizer(x)) ^ " " ^ addLinkage(#linkage(x)) ^ " " ^ addAllig(#alignment(x)) ^ " " ^ addSection(#section(x)) ^ " " ^ addVisibility(#visibility(x)) ^ " " ^ addUnamed(#unnamedadr(x)) ^ " " ^ addStorage(#stoageclass(x)) ^ " " ^ addCombat(#comdat(x))]
+       |add_global (ast.Function x)       = ["fn"] 
+       |add_global _                      = [""];
+
+    fun add_def [] = []
+       |add_def (x::xs) = case x of
+                ast.GlobalDefinition y => ((add_global y) @ (add_def xs)); 
+
+    fun add_header x = ["4243 c0de " ^ "0000 0000 " ^ "0000 1000 " ^ "1111 1111 " ^ "0000 0000 "];
 
     fun get_encode "" =  ""
        |get_encode x  = get_binary (String.explode x);
