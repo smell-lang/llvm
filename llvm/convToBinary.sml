@@ -20,6 +20,14 @@ end
 structure convertToBinary:binaryPrinting = struct
     type t = string list;
 
+    fun triple_size x = case (String.size x) of
+                1 => "000" ^ x
+               |2 => "00"  ^ x
+               |3 => "0"   ^ x
+               |_ => x;
+
+    val count = ref 3;
+
 
     fun con_bit n =
         let
@@ -156,7 +164,14 @@ structure convertToBinary:binaryPrinting = struct
 
     fun addAllig x = get_binary(String.explode (IntInf.toString(x)));
 
-    fun add_global (ast.GlobalVariable x) = ["0101 " ^ "0111" ^ "001100" ^ " strtab offset " ^ " strtab size " ^ " " ^ add_type(#types(x)) ^ " " ^ addIsCons(#isconstant(x)) ^ " " ^ addValue(#initlizer(x)) ^ " " ^ addLinkage(#linkage(x)) ^ " " ^ addAllig(#alignment(x)) ^ " " ^ addSection(#section(x)) ^ " " ^ addVisibility(#visibility(x)) ^ " " ^ addUnamed(#unnamedadr(x)) ^ " " ^ addStorage(#stoageclass(x)) ^ " " ^ addCombat(#comdat(x))]
+    fun add_global (ast.GlobalVariable x) = 
+                let 
+                    val counts = !count + 1
+                    val s = con_bit counts
+                    val temp = triple_size s
+                in
+                    (count := !count + 1;[temp ^ " 0111 " ^ "001100" ^ " strtab offset " ^ " strtab size " ^ " " ^ add_type(#types(x)) ^ " " ^ addIsCons(#isconstant(x)) ^ " " ^ addValue(#initlizer(x)) ^ " " ^ addLinkage(#linkage(x)) ^ " " ^ addAllig(#alignment(x)) ^ " " ^ addSection(#section(x)) ^ " " ^ addVisibility(#visibility(x)) ^ " " ^ addUnamed(#unnamedadr(x)) ^ " " ^ addStorage(#stoageclass(x)) ^ " " ^ addCombat(#comdat(x))])
+                end
        |add_global (ast.Function x)       = ["fn"] 
        |add_global _                      = [""];
 
@@ -183,13 +198,35 @@ structure convertToBinary:binaryPrinting = struct
                |_ => x;
 
 
-    fun add_triple (SOME x) = ["0100 " ^ "0010 " ^ vbr(con_bit(vbr_encoding(get_size(String.explode x)))) ^ " " ^ get_encode x]
+    fun add_triple (SOME x) = 
+                let 
+                    val counts = !count + 1
+                    val s = con_bit counts
+                    val temp = triple_size s
+                in
+                    (count := !count + 1;[temp ^ " 0010 " ^ vbr(con_bit(vbr_encoding(get_size(String.explode x)))) ^ " " ^ get_encode x])
+                end
        |add_triple NONE     = [];
 
     fun add_dataLayout (SOME x) = []
        |add_dataLayout NONE     = [];
 
-    fun conv_mod (ast.Module x) = (add_header x) @ (add_triple (#moduleTargetTriple x)) @ (add_dataLayout (#moduleDatalayout x)) @ (add_def (#moduleDefination x));
+    
+
+    fun addStrBlock x =
+                let 
+                    val counts = !count + 1
+                    val s = con_bit counts
+                    val temp = triple_size s
+                    val size  = "get_size x"
+                in
+                    (count := !count + 1;"00010111 " ^ temp ^ size)
+                end    
+       
+
+    fun add_strtab x = [addStrBlock x]  
+
+    fun conv_mod (ast.Module x) = (add_header x) @ (add_triple (#moduleTargetTriple x)) @ (add_dataLayout (#moduleDatalayout x)) @ (add_def (#moduleDefination x)) @ (add_strtab x);
 end;
 
 val d = convertToBinary.conv_mod defaultModule;
