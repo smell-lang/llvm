@@ -28,6 +28,7 @@ structure convertToBinary:binaryPrinting = struct
 
     val count = ref 3;
 
+    fun get_name (ast.Name x) = x;
 
     fun con_bit n =
         let
@@ -209,24 +210,60 @@ structure convertToBinary:binaryPrinting = struct
        |add_triple NONE     = [];
 
     fun add_dataLayout (SOME x) = []
-       |add_dataLayout NONE     = [];
+       |add_dataLayout NONE     = [];  
 
-    
+    fun getElemSize x = case x of
+                         ast.GlobalVariable x => String.size(get_name (#name x))
+                        |ast.Function x       => String.size(get_name (#name x))
+                        |_                    => 0;
+
+    fun getvalues x = case x of
+                         ast.GlobalVariable x => get_binary(String.explode((get_name (#name x))))
+                        |ast.Function x       => get_binary(String.explode((get_name (#name x))))
+                        |_                    => "";
+
 
     fun addStrBlock x =
                 let 
                     val counts = !count + 1
                     val s = con_bit counts
                     val temp = triple_size s
-                    val size  = "get_size x"
+                    fun addBits 0 = ""
+                       |addBits n = "0" ^ (addBits (n-1)) 
+                    fun getSize []      = 0
+                       |getSize (x::xs) = case x of
+                            (ast.GlobalDefinition x) => (((getElemSize x) * 6) + getSize(xs))
+                            | _                      => 0      
+                    val alignBits =  addBits ((getSize x) mod 32)
                 in
-                    (count := !count + 1;"00010111 " ^ temp ^ size)
-                end    
-       
+                    (count := !count + 1;"00010111 " ^ alignBits ^ " " ^ con_bit (getSize x) ^ " ")
+                end;    
 
-    fun add_strtab x = [addStrBlock x]  
+    fun addValue x = 
+                let 
+                    val counts = !count + 1
+                    val s = con_bit counts
+                    val temp = triple_size s
+                    fun getSize []      = ""
+                       |getSize (x::xs) = case x of
+                            (ast.GlobalDefinition x) => (getvalues x) ^ " " ^ getSize(xs)
+                            | _                      => ""     
+                in
+                    (count := !count + 1;(getSize x))
+                end; 
 
-    fun conv_mod (ast.Module x) = (add_header x) @ (add_triple (#moduleTargetTriple x)) @ (add_dataLayout (#moduleDatalayout x)) @ (add_def (#moduleDefination x)) @ (add_strtab x);
+    fun add_strtab [] = []
+       |add_strtab x  = 
+                let
+                    val counts = !count + 1
+                    val s = con_bit counts
+                    val temp = triple_size s
+                    val addStrBlob = temp ^ " " ^ "0001 "
+                in
+                    [(addStrBlock x) ^ addStrBlob ^ (addValue x) ]
+                end;
+
+    fun conv_mod (ast.Module x) = (add_header x) @ (add_triple (#moduleTargetTriple x)) @ (add_dataLayout (#moduleDatalayout x)) @ (add_def (#moduleDefination x)) @ (add_strtab (#moduleDefination x));
 end;
 
 val d = convertToBinary.conv_mod defaultModule;
