@@ -77,5 +77,5 @@ val defaultModule = ast.Module {
         moduleSourceFilename = "ss", 
         moduleDatalayout = NONE,
         moduleTargetTriple = SOME "aaa",
-        moduleDefination = [ast.GlobalDefinition Var1,ast.GlobalDefinition Var2,ast.GlobalDefinition defaultFunction]
+        moduleDefination = [ast.GlobalDefinition Var1,ast.GlobalDefinition Var2(*ast.GlobalDefinition defaultFunction*)]
       };
