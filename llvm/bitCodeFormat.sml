@@ -39,3 +39,10 @@ structure Binary_Format = struct
 
       datatype BitFormat = Lists of (magicNumber * ((Id * Instructions) list));
 end;
+
+signature Conversion = sig
+    
+    type t;
+
+    val conv : Binary_Format.BitFormat -> t;
+end;
