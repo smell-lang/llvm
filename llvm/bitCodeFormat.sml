@@ -7,7 +7,6 @@
 
 (*********************************************************************************)
 
-
 structure Binary_Format = struct
      
     datatype Id = Id of IntInf.int;
@@ -38,5 +37,5 @@ structure Binary_Format = struct
             operands : string 
       };
 
-      datatype BitFormat = Lists of (magicNumber * (Instructions list));
+      datatype BitFormat = Lists of (magicNumber * ((Id * Instructions) list));
 end;
