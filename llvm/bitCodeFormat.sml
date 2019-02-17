@@ -78,8 +78,30 @@ structure conversion = struct
                                   in 
                                         (prevAbbrLen := [!currAbrrLen] @ !prevAbbrLen ; currAbrrLen := getValue (String.explode (convtoHex (ff (ctos (String.explode (#abbrLen(x)))))), (String.size (convtoHex (ff (ctos (String.explode (#abbrLen(x)))))) - 1)); id ^ Word8.toString (#blockID(x)) ^ (#abbrLen(x)) ^ (#alignbits(x)) ^(#blockLen(x)) )
                                   end
-               |EndBlock x      => (currAbrrLen := List.hd(!prevAbbrLen) ;prevAbbrLen := List.drop (!prevAbbrLen,1); x)
-               |_               => "";
+               |EndBlock x      =>
+                                  let
+                                        fun getEncodedId 2 = "00"
+                                           |getEncodedId y = "0" ^ getEncodedId (y-1)
+                                        val id = getEncodedId(List.hd(!prevAbbrLen))
+                                  in
+                                        (currAbrrLen := List.hd(!prevAbbrLen) ;prevAbbrLen := List.drop (!prevAbbrLen,1); id ^ x)
+                                  end
+               |Abbrev x        => 
+                                  let
+                                        fun getEncodedId 2 = "00"
+                                           |getEncodedId y = "0" ^ getEncodedId (y-1)
+                                        val id = getEncodedId(!currAbrrLen)
+                                  in
+                                        (id ^ (#Abbrevid(x)) ^ (#numofOp(x)) ^ (#operands(x)))
+                                  end
+               |UnAbbrev x      => 
+                                  let
+                                        fun getEncodedId 2 = "00"
+                                           |getEncodedId y = "0" ^ getEncodedId (y-1)
+                                        val id = getEncodedId(!currAbrrLen)
+                                  in
+                                        (id ^ (#code(x)) ^ (#numofOp(x)) ^ (#operands(x)))
+                                  end;
 
     fun convInstructions []          = ""  
        |convInstructions (x::xs) = (convIns x) ^ (convInstructions xs);
