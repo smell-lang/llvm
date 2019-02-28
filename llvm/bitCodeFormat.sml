@@ -47,7 +47,7 @@ signature Conversion = sig
     val conv : BitFormat -> t;
 end;
 
-structure conversion = struct
+structure conversion : Conversion = struct
 
     type t = string;
 
