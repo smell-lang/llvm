@@ -1048,8 +1048,8 @@ structure ast = struct
                            | Store of
           {
                 volatile : bool,
-                address : Operand,
-                value : Operand,
+                address : Name,
+                value : Name,
                 maybeAtomicity : Atomicity option,
                 alignment : IntInf.int,
                 metadata : InstructionMetadata
@@ -1340,3 +1340,230 @@ structure ast = struct
           }
 
 end;
+
+
+
+val defaultBasicblock = ast.BasicBlock (ast.Name "entry" , [ (ast.Named ("sum" , ast.Add { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ), (ast.Named ("sm" , ast.Sub { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "sum") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , metadata = ast.InstructionMetadata nil } ) )  ] , ast.Do (ast.Br { dest = ast.Name "entry1", metadata = ast.InstructionMetadata nil } ) ); 
+
+
+
+val defaultBasicblock0 = ast.BasicBlock (ast.Name "entry" , [ (ast.Named ("sum" , ast.Add { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ), (ast.Named ("sm" , ast.Sub { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "sum") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , metadata = ast.InstructionMetadata nil } ) )  ] , ast.Do (ast.Br { dest = ast.Name "entry1", metadata = ast.InstructionMetadata nil } ) ); 
+
+val defaultBasicblock1 = ast.BasicBlock (ast.Name "entry1" , [ (ast.Named ("cmp" , ast.ICmp { iPredicate = ast.ULT, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) ] , ast.Do (ast.CondBr { condition = ast.LocalReference (ast.IntegerType 32, ast.Name "cmp") , trueDest = ast.Name "entry2" , falseDest = ast.Name "entry3" , metadata = ast.InstructionMetadata nil } ) ); 
+
+val defaultBasicblock2 = ast.BasicBlock (ast.Name "entry2" , [ (ast.Named ("son" , ast.Add { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) )  ] , ast.Do (ast.Ret { returnOperand = SOME (ast.LocalReference (ast.IntegerType 32, ast.Name "son") ), metadata = ast.InstructionMetadata nil } ) ); 
+
+val defaultBasicblock3 = ast.BasicBlock (ast.Name "entry3" , [ (ast.Named ("soj" , ast.Alloca { allocatedType = ast.IntegerType 32, numElements = NONE, alignment = 4 , metadata = ast.InstructionMetadata nil } ) ), (ast.Named ("sod" , ast.Store { volatile = false, address = ast.Name "soj", value = ast.Name "3", maybeAtomicity = NONE, alignment = 4 , metadata = ast.InstructionMetadata nil } ) ) ] , ast.Do (ast.Ret { returnOperand = SOME (ast.LocalReference (ast.IntegerType 32, ast.Name "soj") ), metadata = ast.InstructionMetadata nil } ) ); 
+
+val defaultBasicblo = ast.BasicBlock (ast.Name "entry" , [ (ast.Named ("sum" , ast.Add { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ), (ast.Named ("sun" , ast.Sub { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("sam" , ast.Add { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ), (ast.Named ("cmp" , ast.ICmp { iPredicate = ast.ULT, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) )  ] , ast.Do (ast.Ret { returnOperand = SOME (ast.LocalReference (ast.IntegerType 32, ast.Name "sum") ), metadata = ast.InstructionMetadata nil } ) ); 
+
+
+
+val defaultFunction = ast.Function {
+        linkage = ast.Private, 
+        visibility = ast.Default,
+        storageClass = NONE,
+        callingConvention = ast.GHC,
+        returnAttributes = nil,
+        functionAttributes = nil,
+        returnType = ast.VoidType,
+        name = ast.Name "add_two_integer",
+        parameters = ( [ast.Parameter (ast.IntegerType 32, ast.Name "a", [ast.ZeroExt]), ast.Parameter (ast.IntegerType 32, ast.Name "b", [ast.ZeroExt])] , true ),
+        section = NONE,
+        comdat = NONE,
+        allignment = 0,
+        garbagecollectorName = NONE,
+        prefix = NONE,
+        basicblock = [defaultBasicblock0,defaultBasicblock1,defaultBasicblock2,defaultBasicblock3],
+        personalityFunction = NONE,
+        metadata = nil 
+      };
+
+val defaultFunction1 = ast.Function {
+        linkage = ast.Private, 
+        visibility = ast.Default,
+        storageClass = NONE,
+        callingConvention = ast.GHC,
+        returnAttributes = nil,
+        functionAttributes = nil,
+        returnType = ast.VoidType,
+        name = ast.Name "add_two_integer1",
+        parameters = ( [ast.Parameter (ast.IntegerType 32, ast.Name "a", [ast.ZeroExt]), ast.Parameter (ast.IntegerType 32, ast.Name "b", [ast.ZeroExt])] , true ),
+        section = NONE,
+        comdat = NONE,
+        allignment = 0,
+        garbagecollectorName = NONE,
+        prefix = NONE,
+        basicblock = [defaultBasicblock],
+        personalityFunction = NONE,
+        metadata = nil 
+      };
+
+
+
+
+val Var1 = ast.GlobalVariable {
+        name = ast.Name "first",
+        linkage = ast.Common,
+        visibility = ast.Default,
+        unnamedadr = NONE, 
+        adrspace = ast.AddrSpace 0,
+        stoageclass = NONE,
+        localmode = NONE,
+        isconstant = true,
+        initlizer = NONE,
+        section = NONE,
+        comdat = NONE,
+        alignment = 4,
+        types = ast.FloatingType (ast.HalfFP),
+        metadata = nil
+      };
+
+val Var2 = ast.GlobalVariable {
+        name = ast.Name "second",
+        linkage = ast.Common,
+        visibility = ast.Default,
+        unnamedadr = NONE, 
+        adrspace = ast.AddrSpace 0,
+        stoageclass = NONE,
+        localmode = NONE,
+        isconstant = true,
+        initlizer = NONE,
+        section = NONE,
+        comdat = NONE,
+        alignment = 4,
+        types = ast.IntegerType 32,
+        metadata = nil
+      };
+
+val defaultModule = ast.Module {
+        modulename = "dd", 
+        moduleSourceFilename = "ss", 
+        moduleDatalayout = NONE,
+        moduleTargetTriple = SOME "aaa",
+        moduleDefination = [ast.GlobalDefinition Var1,ast.GlobalDefinition Var2,ast.GlobalDefinition defaultFunction,ast.GlobalDefinition defaultFunction1]
+              };
+              
+
+fun getInt (ref x) = x;
+
+fun getName (ast.Name x) = x; 
+
+fun getReturnType x = case x of
+                (ast.VoidType)       => "void"
+               |(ast.IntegerType y)  => IntInf.toString(y)
+               |_                    => ""
+
+fun get_parameters (ast.Parameter (x,y,_)) =  getReturnType(x)
+
+fun getParaHelper []      = []
+   |getParaHelper (x::xs) = case xs of
+                    [] => [get_parameters(x)]
+                   |_  => [get_parameters(x)] @ getParaHelper(xs)
+
+fun getParaType (x,y) = case y of 
+        false => []
+       |true  => getParaHelper(x)
+       
+fun getParaLen [] = 0
+   |getParaLen (x::xs) = 1 + getParaLen(xs)
+
+fun getLength (x,y) = case y of
+        false =>  0
+       |true  =>  getParaLen x
+       
+fun get_bb_name (ast.Name x) = [x]
+
+fun numInst x = [Int.toString(List.length x)]
+
+fun get_values (ast.LocalReference (x,ast.Name y)) = y;
+
+fun get_pred x = case x of
+                  EQ   => "0"
+                | NE   => "1"
+                | UGT  => "2"
+                | UGE  => "3"
+                | ULT  => "4"
+                | ULE  => "5"
+                | SGT  => "6"
+                | SGE  => "7"
+                | SLT  => "8"
+                | SLE  => "9"
+                
+fun gettype x = case x of 
+           (ast.IntegerType y)  => "0"
+          |(ast.FloatingType x) => "1"
+          |_                    => ""   
+
+fun decodeInst x = case x of
+                (ast.Add x)    => ["3"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.Sub x)    => ["4"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.UDiv x)   => ["5"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.Mul x)    => ["6"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.ICmp x)   => ["7"] @ [get_pred(#iPredicate(x))] @ [get_values(#operand1(x))]
+               |(ast.And x)    => ["8"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.Or x)     => ["9"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.Xor x)    => ["0"] @ [get_values(#operand0(x))] @ [get_values(#operand1(x))]
+               |(ast.Alloca x) => ["1"] @ [gettype(#allocatedType(x))] @ ["0"]
+               |(ast.Store x)  => ["2"] @ [getName(#value(x))] @ [getName(#address(x))]
+               |_              => []
+
+fun getInst (ast.Named (x,y)) = [x] @ decodeInst(y)
+
+fun getInstSet nil = []
+   |getInstSet (x::xs) = getInst(x) @ getInstSet(xs);
+   
+fun getTerminatorValue NONE = ""
+   |getTerminatorValue (SOME x) = case x of
+                (ast.LocalReference (x,y))  => getName(y)
+               |(ast.GlobalReference (x,y)) => getName(y)
+
+fun getRet (ast.Do x) = case x of
+                (ast.Ret y)    => ["1"] @ [getTerminatorValue(#returnOperand(y))] @ ["0"] @ ["0"] 
+               |(ast.Br y)     => ["2"] @ [getName(#dest(y))]  @ ["0"] @ ["0"] 
+               |(ast.CondBr y) => ["3"] @ [get_values(#condition(y))]  @ [getName(#trueDest(y))] @ [getName(#falseDest(y))] 
+               |_              => []
+       
+fun getBasicBlock (ast.BasicBlock (x,y,z)) = (get_bb_name(x) @ numInst(y) @ getInstSet(y) @ getRet(z))
+       
+fun getBasicBlocks []      = []
+   |getBasicBlocks (x::xs) = getBasicBlock(x) @ getBasicBlocks(xs)
+   
+fun numBB [] = 0
+   |numBB (x::xs) = 1 + numBB(xs)
+
+fun getBBName (ast.BasicBlock (x,y,z)) = get_bb_name(x)   
+   
+fun bbName []      = []
+   |bbName (x::xs) = getBBName(x) @ bbName(xs)
+   
+fun getParametersName (ast.Parameter (x,y,_)) = getName(y); 
+
+fun getParaNameHelper [] = []
+   |getParaNameHelper (x::xs) = case xs of
+                    [] => [getParametersName(x)]
+                   |_  => [getParametersName(x)] @ getParaNameHelper(xs) 
+   
+fun getParaName (x,y) = case y of 
+        false => []
+       |true  => getParaNameHelper(x)  
+
+fun getGlobal (ast.GlobalVariable x) = (["1"] @ [getName(#name(x))] @ [gettype(#types(x))])
+   |getGlobal (ast.Function x)       = (["2"] @ [getName(#name(x))] @ [getReturnType(#returnType(x))]  @ [Int.toString(getLength(#parameters(x)))] @ getParaType(#parameters(x)) @ getParaName(#parameters(x)) @ [Int.toString(numBB(#basicblock(x)))] @ bbName(#basicblock(x)) @ getBasicBlocks(#basicblock(x)) )
+
+fun getDef [] = []
+   |getDef (x::xs) = case x of
+                ast.GlobalDefinition y => ((getGlobal y) @ (getDef xs));
+
+fun getBinary (ast.Module x) = (#modulename(x), (getDef (#moduleDefination x)) @ ["-1"] );
+
+val (moduleName, lists)  = (getBinary defaultModule)
+
+
+val len = List.length lists;
+val ls = Array.fromList lists;
+
+
+val convert = _import "helper" : string * string array * int -> unit;
+val _ = convert (moduleName, ls, len);
+
