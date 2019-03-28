@@ -1386,7 +1386,7 @@ val defaultFunction1 = ast.Function {
         callingConvention = ast.GHC,
         returnAttributes = nil,
         functionAttributes = nil,
-        returnType = ast.VoidType,
+        returnType = ast.FloatingType ast.HalfFP,
         name = ast.Name "add_two_integer1",
         parameters = ( [ast.Parameter (ast.IntegerType 32, ast.Name "a", [ast.ZeroExt]), ast.Parameter (ast.IntegerType 32, ast.Name "b", [ast.ZeroExt])] , true ),
         section = NONE,
@@ -1451,6 +1451,7 @@ fun getName (ast.Name x) = x;
 
 fun getReturnType x = case x of
                 (ast.VoidType)       => "void"
+               |(ast.FloatingType y) => "float"
                |(ast.IntegerType y)  => IntInf.toString(y)
                |_                    => ""
 

@@ -24,7 +24,7 @@ entry3:                                           ; preds = %entry1
   ret i32* %soj
 }
 
-define void @add_two_integer1(i32, i32) {
+define float @add_two_integer1(i32, i32) {
 entry:
   %sum = add i32 %0, %1
   %sm = sub i32 %sum, %0
