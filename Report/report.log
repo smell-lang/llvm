@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  1 APR 2019 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  1 APR 2019 22:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -374,11 +374,82 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
  (./report.toc
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 9.60007pt on input line 1.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
+File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
+)
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
+File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
+)
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
+File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
+)
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
+File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
+)
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
+File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
+)
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 3.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 3.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 3.
 )
 \tf@toc=\write3
 \openout3 = `report.toc'.
 
- [3
+
+[3
 
 ]
 LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
@@ -389,14 +460,16 @@ ed.
 
 ]
 Chapter 1.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 13.82408pt on input line 77.
 </home/breezy/Downloads/Drive.png, id=19, 713.66624pt x 241.90375pt>
 File: /home/breezy/Downloads/Drive.png Graphic file (type png)
 <use /home/breezy/Downloads/Drive.png>
-Package pdftex.def Info: /home/breezy/Downloads/Drive.png  used on input line 8
-4.
+Package pdftex.def Info: /home/breezy/Downloads/Drive.png  used on input line 9
+2.
 (pdftex.def)             Requested size: 379.41751pt x 128.60701pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--95
+Underfull \hbox (badness 10000) in paragraph at lines 82--103
 
  []
 
@@ -407,24 +480,43 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Chapter 2.
-[9] (./report.aux) ) 
+[9]
+Overfull \hbox (8.65782pt too wide) in paragraph at lines 149--158
+[]\T1/mdbch/b/n/14.4 Naive As-sem-bly \T1/mdbch/m/n/14.4 : This is one of the g
+en-uine pre-ferred choice,
+ []
+
+[10]
+Overfull \hbox (13.58371pt too wide) in paragraph at lines 184--191
+\T1/mdbch/m/n/14.4 as-sem-bly. High level as-sem-bly lan-guages are low-level e
+nough
+ []
+
+
+Overfull \hbox (0.75595pt too wide) in paragraph at lines 184--191
+\T1/mdbch/m/n/14.4 ming lan-guages, but also high-level enough to ab-stract awa
+y
+ []
+
+[11] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3613 strings out of 492982
- 51181 string characters out of 6134897
- 102428 words of memory out of 5000000
- 7099 multiletter control sequences out of 15000+600000
- 44736 words of font info for 51 fonts, out of 8000000 for 9000
+ 3689 strings out of 492982
+ 52794 string characters out of 6134897
+ 103428 words of memory out of 5000000
+ 7153 multiletter control sequences out of 15000+600000
+ 53676 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,37p,727b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ly1/texnansi
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on report.pdf (9 pages, 59627 bytes).
+ 41i,6n,37p,688b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ly1/texnans
+i.enc}</usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb>
+Output written on report.pdf (11 pages, 72680 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

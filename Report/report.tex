@@ -60,16 +60,24 @@
     
     \vspace{1.0cm}
     \justify
-    This report presents the design and implementation of a new LLVM back-end for the ML-ton Standard ML compiler and converting of LLVM Ast to LLVM IR.  The motivation of this project is to utilize the features that an LLVM back-end can provide to a compiler, and compare its implementation to the existing back-ends that ML-ton has for C and native assembly (x86 and amd64).  The LLVM back-end was found to offer a greatly simpler implementation compared to the existing back-ends, along with comparable compile times and performance of generated executable, with the LLVM-compiled version performing the best on many of the benchmarks. The LLVM IR can used for optimization of source code and JIT(Just In Time).
+    This report presents the design and implementation of a new LLVM back-end for the ML-ton Standard ML compiler. The motivation of this project is to utilize the features that an LLVM back-end can provide to a compiler, and compare its implementation to the existing back-ends that ML-ton has for C and native assembly (x86 and amd64).  The LLVM back-end was found to offer a greatly simpler implementation compared to the existing back-ends, along with comparable compile times and performance of generated executable, with the LLVM-compiled version performing the best on many of the benchmarks. The LLVM IR can used for optimization of source code and JIT(Just In Time).
 \end{center}
 
 \tableofcontents
 
 \chapter{Introduction}
    \Large
-   Compilers are some of the most important tools in the software ecosystem, being the tool
-that turns code written in high-level programming languages to executables that can run directly on hardware. They are also complex software systems, having to face the challenges
-of transforming high-level language constructs and abstractions to efficient lower-level representations, and handle the portability aspects of supporting compilation to multiple platforms.
+   Today's world of computing is undergoing a constant, yet silent revolution. Both
+   software and hardware systems - from embedded micro-controllers through to massively
+   parallel high-performance computers - are experiencing an ever-increasing degree of
+   sophistication and complexity. Although it never actually comes to the fore, compiler
+   technology plays a central role in this revolution as the junction between software and
+   hardware. Traditionally, a compiler has to fulfill three main requirements:
+   \begin{itemize}
+   	\item It has to generate efficient code for the target platform.
+   	\item It should consume only a reasonable amount of time and memory.
+   	\item It must be reliable.
+   \end{itemize}
 
 Compilers are generally architected in a three-phase design: The front-end, optimizer
 and back-end, shown in figure 1.1. The front-end is responsible for the lexing, parsing, and
@@ -114,6 +122,74 @@ and implementation of the LLVM back-end, going over the design choices made and 
 strategy used for translating to LLVM. Chapter 4 goes over the design and implementation of the algorithm to convert the LLVM AST into LLVM IR. Chapter 5 gives concluding remarks for this project and ideas for further work
 
 \chapter{Background}
+\Large
+	\section{Back-end Targets}
+	A  big  challenge  in  the  design  of  compilers  for  high-level  languages  is  finding  the  best
+	way to implement the compiler's back-end.  Compiler developers want to use a technique
+	that allows the generated executable to run as efficiently as possible, as that is an important
+	factor in judging the quality of the compiler. However, they also want to minimize the effort
+	in implementing the back-end, ideally by sharing infrastructure with other compilers. Due
+	to many compiler writers prioritizing the former, this challenge has led to a situation where
+	the popular implementations of languages like C, Java, Python, and Haskell share little or
+	nothing in common.
+	
+	A  big  challenge  in  the  design  of  compilers  for  high-level  languages  is  finding  the  best
+	way to implement the compiler’s back-end.  Compiler developers want to use a technique
+	that allows the generated executables to run as efficiently as possible, as that is an important
+	factor in judging the quality of the compiler. However, they also want to minimize the effort
+	in implementing the back-end, ideally by sharing infrastructure with other compilers. Due
+	to many compiler writers prioritizing the former, this challenge has led to a situation where
+	the popular implementations of languages like C, Java, Python, and Haskell share little or
+	nothing in common.
+	
+	Major factor in the design of back-end of any Language is the kind of language the back-end will be going to target.
+	achievable targets can be categorized into four categories:
+	
+	\begin{itemize}
+		\item \textbf{Naive Assembly} :  This is one of the genuine preferred choice, as it offers the compiler
+		writer the most control over how the compiled executable is written, and it control
+		the dependence on external tools as all you need is the system assembler. However, this
+		way takes the most amount of effort by the compiler writers to implement and
+		maintain.  Assembly languages are complex and disclose many low level details, so
+		it takes a considerable amount of effort to write an effective implementation.  Also,
+		an assembly back-end is target specific, so adding support for a new architecture in a
+		compiler requires a lot of effort.
+		.
+		\item \textbf{High Level Language} : Compilers can produce to a different high-level language, using
+		compilers for that language as foreign tools to complete the compilation process.
+		Most often the language is C ,  because it is low level enough to not interfere
+		too much with the semantics of the source language or final IR of the compiler, and
+		because the language has attractive performance and limited runtime overhead.  Also,
+		this way allocate flexibility for free due to the presence of C compilers across most
+		computing platforms. This approach still has its bugs, due to lack of fine control of
+		code generation details such as tail calls, and longer compilation times due to having
+		to parse and compile source again as part of the back-end stage. 
+		\item \textbf{Managed virtual environments} : A popular choice for programming languages in the
+		past couple of decades is to compile to a high-level and portable
+		bytecode format, and at run-time have it execute on a virtual machine. This has been
+		the choice of execution model for modern compiled languages like Java and C sharp, and
+		for  scripting  languages  like  Python  and  Lua.   To  help  overcome  the  performance
+		penalty of executing on an interpreter,  the virtual machines often use just-in-time
+		(JIT) compilation which compiles the executing code to native machine code as it
+		gets executed. The benefits of this technique include portability on all platforms the
+		virtual machine runs on, and allowing code to take advantage of existing libraries and
+		rich runtime features provided by the platform such as garbage collection and excep-
+		tion handling.   However,  this approach generally suffers from worse performance
+		compared to compiling to native assembly, and can raise issues when the runtime
+		features of the platform do not match up nicely to the runtime features needed by the
+		language.  For example, the garbage collection techniques may not work well based
+		on the style and frequency in which the language allocates objects, or the exception
+		handling system on the virtual machine may not match the semantics of exceptions
+		in the language.
+		\item \textbf{High Level Assembly} : The final alternative is High level assembly.  High level assembly languages are
+		low-level enough to not interfere with the abstractions in high level programming
+		languages,  but  also  high-level  enough  to  abstract  away  the  very  low  level  details
+		of assembly language such as register allocation and instruction scheduling.  They
+		also have the ability to be optimized in both target-independent and target dependent
+		ways, producing high-performance executables. One such language that implements
+		all of these features is the LLVM IR.
+	\end{itemize}
+	
 
 
 \end{document}
