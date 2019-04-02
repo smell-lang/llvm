@@ -1,3 +1,8 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}
 \contentsline {chapter}{\numberline {2}Background}{9}
 \contentsline {section}{\numberline {2.1}Back-end Targets}{9}
+\contentsline {section}{\numberline {2.2}What is LLVM ?}{12}
+\contentsline {subsection}{\numberline {2.2.1}Representation}{13}
+\contentsline {subsection}{\numberline {2.2.2}SSA - Static Single Assignment}{14}
+\contentsline {subsection}{\numberline {2.2.3}Types}{15}
+\contentsline {subsection}{\numberline {2.2.4}Instructions}{15}
