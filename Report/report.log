@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  2 APR 2019 23:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  3 APR 2019 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,7 +616,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 309--311
 
  []
 
-[19] [20] (./report.aux) ) 
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+[20]
+Overfull \hbox (2.2821pt too wide) in paragraph at lines 322--323
+\T1/mdbch/m/n/14.4 span mul-ti-ple mod-ules. LTO works by hav-ing a LTO-aware l
+inker
+ []
+
+[21] [22
+
+]
+Chapter 3.
+[23] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  3698 strings out of 492982
  53004 string characters out of 6134897
@@ -625,19 +650,19 @@ Here is how much of TeX's memory you used:
  53989 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,7n,37p,1900b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t
-1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/sha
-re/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/mathdesign/mdbch/md-chr7y.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/mathdesign/mdbch/md-chr8t.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sftt1440.pfb>
-Output written on report.pdf (20 pages, 125485 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/te
+xlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/bitstrea/charter/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/mathdesign/mdbch/md-chr7y.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/mathdesign/mdbch/md-chr8t.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sftt1440.pfb>
+Output written on report.pdf (23 pages, 128475 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -115,8 +115,8 @@ performance and compile times, but have a limited set of supported platforms.
 In this report, we will be looking at the design and implementation of the new back-
 end for the MLton Standard ML compiler, using the LLVM IR as a target and Design and implementation of an algorithm to convert the LLVM ast into LLVM IR.
 
-The rest of the report is organized as follows. Chapter 2 goes over the Background and why LLVM ?  Chapter 3 describes the design
-and implementation of the algorithm used for the . Chapter 4 goes over the design and implementation of the algorithm to convert the LLVM AST into LLVM IR. Chapter 5 gives concluding remarks for this project and ideas for further work
+The rest of the report is organized as follows. Chapter 2 goes over the Background and Related work . Chapter 3 will cover the capturing of LLVM AST. Chapter 4 describes the design
+and implementation of the algorithm used for the conversion of LLVM AST into LLVM Binary executable . Chapter 5 goes over the design and implementation of the algorithm to convert the LLVM AST into LLVM IR. Chapter 6 gives concluding remarks for this project and ideas for further work
 
 \chapter{Background}
 \Large
@@ -313,5 +313,24 @@ and implementation of the algorithm used for the . Chapter 4 goes over the desig
 		\item \textbf{call : }Calls a function defined or declared elsewhere in the current module.  Any necessary arguments depend on the function being called, and this may assign to a register if the function returns a value.
 		\item \textbf{icmp, fcmp : }Compares two integer or floating-point values of the same type. This operation takes an additional argument indicating what kind of comparison to do, e.g. eq for equality, lt for less-than. The result is a value with type i1, which can be used in the br instruction.
 	\end{itemize}
+
+	\section{Optimization of LLVM IR}
+	 The dominant aspect of LLVM is its ability to be optimized, both with target-independent optimizations  where  the  IR  is  transformed  to  a  extra  efficient  but  semantically  comparable version, and target-dependent optimizations which occur when translating the IR to assembly language or machine code. Optimizations are managed by having them be written as a Pass, which is code that performs analysis and transformations on an LLVM Module and some or all of its substructures.  Passes are completely modular; they are designed to perform one type of analysis or transformation, and multiple passes can easily be applied to the same module in any order.  This flexibility allows for passes to be easily added, removed, and replaced in an optimization pipeline.\newline
+	 
+	 LLVM passes can apply to module in its in-memory form by using the Pass-Manager API, or be applied to LLVM assembly or bit code files using the command-line opt tool. With opt, optimizations can select from a large collection that is included with LLVM by using a command-line flag.  For example, applying the "simplifycfg" pass on prog.ll, opt would be invoked as opt -simplifycfg prog.ll -o prog.ll. Passes can also come come from a dynamic library that implements a pass by using the -load option and the library file. LLVM includes standard optimization sequences with the -ON flag, where N is a number between 1 and 3 indicating the optimization level. A higher number enables more aggressive optimizations but may take longer to run.\newline \newline
+	 
+	 LLVM also supports link-time optimization (LTO),  which allows for additional optimization opportunities for programs that span multiple modules. LTO works by having a LTO-aware linker use LLVM bit code files instead of normal object code files for linking.
+	 
+	\section{Related Work}
+	The LLVM project has been a focus of active research and development in the compiler	community, and because of its modular and reusable design, it has been easy for external
+	projects to take advantage of the features that the project provides. Some of these projects retrofit an LLVM back-end on an existing functional language compiler similar to the goal
+	of this project.
+	
+	\begin{itemize}
+		\item LLVM bindings for Haskell.
+		\item LLVM bindings for OCaml.
+	\end{itemize}
+
+\chapter{Capturing LLVM AST }
 	
 \end{document}
