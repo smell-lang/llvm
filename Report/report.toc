@@ -9,3 +9,12 @@
 \contentsline {section}{\numberline {2.3}Optimization of LLVM IR}{20}
 \contentsline {section}{\numberline {2.4}Related Work}{21}
 \contentsline {chapter}{\numberline {3}Capturing LLVM AST }{23}
+\contentsline {chapter}{\numberline {4}LLVM AST Into LLVM Binary Executables}{27}
+\contentsline {section}{\numberline {4.1}Why this??}{28}
+\contentsline {section}{\numberline {4.2}Work to do}{28}
+\contentsline {subsection}{\numberline {4.2.1}In SML}{28}
+\contentsline {subsection}{\numberline {4.2.2}In C}{30}
+\contentsline {section}{\numberline {4.3}Commands to Run}{31}
+\contentsline {section}{\numberline {4.4}Verification}{32}
+\contentsline {subsection}{\numberline {4.4.1}Commands to verify}{32}
+\contentsline {chapter}{\numberline {5}LLVM AST INTO LLVM IR}{33}

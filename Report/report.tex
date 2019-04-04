@@ -332,5 +332,189 @@ and implementation of the algorithm used for the conversion of LLVM AST into LLV
 	\end{itemize}
 
 \chapter{Capturing LLVM AST }
+An AST(Abstract Syntax Tree) is the tree representation of the abstract syntax structure of source code written in any programming language. Each node of the tree represent the part of the source code which is going to construct the instruction. The syntax in the tree is abstract it does not contains all the parts of the source code instead of that it only contains the useful part which is sufficient to represent the source code. For e.g.\newline
+
+\noindent\rule{12cm}{0.4pt}
+
+\begin{verbatim}
+	If x > 0
+		Then y
+	Else
+		Then Z 	
+\end{verbatim}
+
+\noindent\rule{12cm}{0.4pt} \newline
+
+
+\begin{figure}
+	\includegraphics[width=7cm,height=3cm]{/home/breezy/Downloads/Drive3.png}
+	\caption{Example}
+	\label{fig:3.1}
+\end{figure}
+
+So the capturing of the AST is the first step for making the backend for LLVM. LLVM AST is the different from the other AST like C, python and all other language. In the LLVM AST the things one have to know before capturing it are :
+
+\begin{itemize}
+	\item \textbf{Module : } LLVM programs are composed of Module's, each of which is a translation unit of the input programs. Each module consists of functions, global variables, and symbol table entries. Modules may be combined together with the LLVM linker, which merges function (and global variable) definitions, resolves forward declarations, and merges symbol table entries. In general, a module is made up of a list of global values (where both functions and global variables are global values). Global values are represented by a pointer to a memory location (in this case, a pointer to an array of char, and a pointer to a function), and have a linkage types.
+	\item \textbf{Basic Block : } Each Module has more than one basic block. Basic block is a packet or in a simple language it consist of local variables and a instruction. Every Basic Block has a Entry point and a exit point which is known as terminators. Basic Block is a type of a function which has a entry and exit.
+	\item \textbf{Global Variable : } Global Variable in LLVM IR is represented by "@" followed by the name of the global variable name.It can be accessed from anywhere in the context. 
+	\item \textbf{Metadata : }LLVM IR allows metadata to be attached to instructions in the program that can convey extra information about the code to the optimizers and code generator. One example application of metadata is source-level debug information. There are two metadata primitives: strings and nodes.	Metadata does not have a type, and is not a value. If referenced from a call instruction, it uses the metadata type.	All metadata are identified in syntax by a exclamation point (`!').
 	
+	A metadata string is a string surrounded by double quotes. It can contain any character by escaping non-printable characters with "/xx" where "xx" is the two digit hex code. For example: "!"test/00"".
+	
+	Metadata nodes are represented with notation similar to structure constants (a comma separated list of elements, surrounded by braces and preceded by an exclamation point). Metadata nodes can have any values as their operand. For example:\newline
+	
+	\noindent\rule{12cm}{0.4pt}
+	
+	\begin{verbatim}
+		!{ !"test\00", i32 10}
+	\end{verbatim}
+	
+	\noindent\rule{12cm}{0.4pt} \newline
+	
+	\item \textbf{Types : } The LLVM type system is one of the most important features of the intermediate representation. Being typed enables a number of optimizations to be performed on the intermediate representation directly, without having to do extra analyses on the side before the transformation. A strong type system makes it easier to read the generated code and enables novel analyses and transformations that are not feasible to perform on normal three address code representations.Types in the LLVM IR is same as expressed in the types in the Chapter Background. For e.g. Int, Float, Double, void etc.
+	\item \textbf{Operand : } An Operand is roughly that which is an argument to an Instruction or we can say to a function. Operand can be of three types basically in the LLVM IR which are :
+	1. Local Reference \newline
+	2. Constant \newline
+	3. Metadata \newline
+\end{itemize}
+	
+	
+	The above mentions are the things that we need to capture in order to capture the AST of the LLVM. After capturing the above things one can represent any LLVM IR code by the LLVM AST capture by us, it will then help us in optimizing the source code further if we want because optimization is the one thing that one can do in LLVM IR.\newline
+	
+	Till now, first part of the project was to understand the LLVM and LLVM IR language and it's implementation. The next step was to understand how the bindings are implemented for other language like Haskell, OCaml.Then the next step was to capture the LLVM AST to represent the LLVM IR and to use it further. Now our next step is to design and implement the code/algorithm to convert the LLVM AST into the LLVM AST into LLVM binary executable.
+	
+\chapter{LLVM AST Into LLVM Binary Executables}
+The LLVM bindings for other functional programming language like Haskell, Ocaml etc have something in common that every language bindings used to call the C API of LLVM or C++ API of LLVM by FFI( Foreign Function Interface). The call by FFI to C API or C++ API is not directly just by the things capture by us in the AST like module, Basic Block etc  because the FFI is just only calls by strings , int , and other types so we have to pass the all the things like module , basic block and all other types as the FFI support and then again made it on the other side form the supported type to LLVM Module , LLVM Basic Block etc then call the LLVM C API or LLVM C++ API to convert the AST that we made into the LLVM Binary executable.\newline \newline 
+
+For the LLVM bindings for SML we have to use LLVM C API because SML has the FFI With the C. The FFI supports only the passage of the following type Int, Float, String or Pointer so in SML we have to convert the capture AST into the types that is allowable to pass through FFI calls. For that we are passing the following things: \newpage
+
+\begin{itemize}
+	\item Module Name  -> string
+	\item Array of the Instruction -> Array of string
+	\subitem Global Variables   
+	\subitem Function 
+	\subitem Instructions of many type like arithmetic, logical, comparitive, calls,load , alloca, store etc.
+	\item Length of the array -> int 
+	\item -1 -> string 
+\end{itemize}
+	
+\section{Why this??}
+Why we are using this approach because we can not send directly the modules and the basic block directly through FFI calls so the approach left is to send the module Name separate because to create module at starting before doing anything because we need module in LLVM C API to do anything and then array of instruction in which every things have given ID's to be identified on the other side and then after identifying the type of instruction we have to build the instruction from the string back to AST by using LLVM C API Instruction builder available.
+
+\section{Work to do}
+As we have to pass only the parameters available in FFI calls so we have to do some changes in both side that is in sml and in c.
+
+\subsection{In SML}
+In sml side we have to give ID's and the parameters to build the same AST on the c side by using these parameters :\newpage
+
+\begin{itemize}
+	\item \textbf{ID 1 :->  GLOBAL VARIABLE }
+	\begin{itemize}
+		\item 	Followed by the name of the variable and then by the type of the variable\newline
+		\begin{itemize}
+			\item  \textbf{INT} 
+			\item  \textbf{FLOAT} \newline
+		\end{itemize}
+	\end{itemize}
+
+	\item  \textbf{ID 2 :-> FUNCTION}
+	\begin{itemize}
+		\item Followed by following things:\newline
+		\begin{itemize}
+			\item \textbf{Name of the function}
+			\item \textbf{Return type of the Function}
+			\subitem \textbf{INT}  
+			\subitem \textbf{FLOAT} 
+			\subitem \textbf{VOID}
+			\item \textbf{Number of parameters}
+			\item \textbf{Parameters type}
+			\subitem \textbf{INT}
+			\subitem \textbf{FLOAT}
+			\item \textbf{Parameters Name}
+			\item \textbf{Number of Basic Block}
+			\item \textbf{BB Name}
+			\item \textbf{Instruction inside the Basic Block}
+			\begin{itemize}
+				\item \textbf{NAME of the BB}
+				\item \textbf{Number of Instruction Inside the BB}
+				\item \textbf{Instructions}		
+				\subitem \textbf{ADD : (ID = 3)} followed by operands
+				\subitem \textbf{SUB : (ID = 4)} followed by operands
+				\subitem \textbf{MUL : (ID = 6)} followed by operands
+				\subitem \textbf{DIV : (ID = 5)} followed by operands
+				\subitem \textbf{ICMP : (ID = 7)} followed by operands
+				\subitem \textbf{AND : (ID = 8)} followed by operands
+				\subitem \textbf{OR : (ID = 9)} followed by operands
+				\subitem \textbf{XOR : (ID = 0)} followed by operands
+				\subitem \textbf{ALLOCA : (ID = 1)} followed by operands
+				\subitem \textbf{STORE : (ID = 2)} followed by operands
+				\item  \textbf{Terminator}
+				\subitem \textbf{RET : (ID = 1)} followed by Return value
+				\subitem \textbf{BR : (ID = 2)} followed by Name of the destination ( BASIC BLOCK )
+				\subitem \textbf{COND : (ID = 3)} followed by condition on which we have to check , name of the true destination basic block, name of the false destination basic block
+			\end{itemize}
+		\end{itemize}
+	\end{itemize} 
+\end{itemize}
+
+\subsection{In C}
+In the c side we have to just make it back to AST by using LLVM C API tools and then call  the LLVM tool to convert the whole module into the binary files.\newline
+
+\begin{figure}[h]
+	\includegraphics[width=15cm]{/home/breezy/Downloads/Drive4.png}
+	\caption{Process of Conversion}
+	\label{fig:4.1}
+\end{figure} \newpage
+
+\section{Commands to Run}
+The below command is to make the call and make the file executable: \newline
+\noindent\rule{12cm}{0.4pt}
+
+\begin{verbatim}
+mlton -link-opt '-I/usr/lib/llvm-6.0/include
+-std=c++0x -fuse-ld=gold -Wl,--no-keep-files-mapped
+-Wl,--no-map-whole-files -fPIC -fvisibility-inlines
+-hidden -Werror=date-time -std=c++11 -Wall -W -Wno-
+unused-parameter -Wwrite-strings -Wcast-qual -Wno
+-missing-field-initializers-pedantic -Wno-long-long
+-Wno-maybe-uninitialized -Wdelete-non-virtual-dtor 
+-Wno-comment -ffunction-sections -fdata-sections -O2
+-DNDEBUG  -fno-exceptions -D_GNU_SOURCE -D
+__STDC_CONSTANT_MACROS-D__STDC_FORMAT_MACROS-D
+__STDC_LIMIT_MACROS -L/usr/lib/llvm-6.0/lib 
+-lLLVM-6.0 -lstdc++' -default-ann 'allowFFI true
+' example.sml conv.c
+\end{verbatim}
+\noindent\rule{12cm}{0.4pt}\newline \newline
+
+Then we have to execute the file to get the binary file
+
+\noindent\rule{12cm}{0.4pt}
+
+\begin{verbatim}
+	./example
+\end{verbatim}
+
+\noindent\rule{12cm}{0.4pt}
+
+After this it will convert the AST into Binary Executable.
+
+\newpage
+
+\section{Verification}
+To verify that we have done the right conversion we have to make back the LLVM IR from the LLVM binary executables by using LLVM tools called llvm-dis and then we can verify then it's correct by comparing the two.
+
+\subsection{Commands to verify}
+\noindent\rule{12cm}{0.4pt}
+
+\begin{verbatim}
+llvm-dis file_name
+\end{verbatim}
+
+\noindent\rule{12cm}{0.4pt}\newline
+
+Now we will have the LLVM IR code then we can verify it by comparing the two.
+
+\chapter{LLVM AST INTO LLVM IR}
 \end{document}
