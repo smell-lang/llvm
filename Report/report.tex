@@ -1,8 +1,9 @@
-\documentclass{book}
+\documentclass[openany]{book}
 \usepackage{graphicx}
 \usepackage[executivepaper,margin=1in]{geometry}
 \usepackage[charter]{mathdesign}
 \usepackage{ragged2e}
+\usepackage{hyperref}
 %-----------------------------------------------------------------
 \begin{document}
 % ----------------------------------------------------------------
@@ -60,10 +61,33 @@
     
     \vspace{1.0cm}
     \justify
-    This report presents the design and implementation of a new LLVM support for the ML-ton Standard ML compiler. The motivation of this project is to utilize the features that an LLVM back-end can provide to a compiler.  The LLVM back-end was found to offer a greatly simpler implementation compared to the existing back-ends. The LLVM IR can used for optimization of source code and JIT(Just In Time). So LLVM can be used as optimized code. 
+    This report presents the design and implementation of a new LLVM support for the ML-ton Standard ML compiler. The motivation of this project is to utilize the features that an LLVM back-end can provide to a compiler.  The LLVM back-end was found to offer a greatly simpler implementation compared to the existing back-ends. The LLVM IR can used for optimization of source code and JIT(Just In Time). So LLVM can be used as optimized code. \newpage
 \end{center}
 
+\thispagestyle{plain}
+\begin{center}
+	
+	\huge{\textbf{Acknowledgment}}
+	\large
+	\vspace{0.4cm}
+	
+	\vspace{1.0cm}
+	The present work is an effort to throw some light on "LLVM Back-end for SML". The work would not have been possible to come to the present shape without the able guidance, supervision and help to me by Dr. Piyush P. Kurur. With the deep sense of gratitude I acknowledge the encouragement and guidance by my organizational guide. I convey my heartful affection to all those people who helped and supported me during the project, for completion of my project report.   
+\end{center}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
 \tableofcontents
+
+\listoffigures
+
+\listoftables
 
 \chapter{Introduction}
    \Large
@@ -517,4 +541,96 @@ llvm-dis file_name
 Now we will have the LLVM IR code then we can verify it by comparing the two.
 
 \chapter{LLVM AST INTO LLVM IR}
+\section{Introduction}
+As in the previous chapter we build the tool that will take LLVM AST of a LLVM IR code and output the LLVM Binary executable corresponding to the LLVM IR that we input. As also mention in the chapter 2 that the target available for the back-end for any language are of four types only two are efficient from the fours, that are converting any AST into the any HIGH LEVEL Language or into the any HIGH LEVEL Assembly. So we did the second part as explain in the previous chapter and we can get the first part also done just by using LLVM tools but we have to do it by pure SML, in simple language all things should be done by the SML, so for that we have to design and implement the tool written in SML that will take the any LLVM AST and then convert the input into the LLVM IR code corresponding to the input LLVM AST. \newline
+
+The conversion that we are doing is also known as pretty printing. Pretty printing is just the reverse process of generating any AST of any language from the an source code of any language.  So it can be view as in fig 5.1.\newpage
+
+\begin{figure}[h]
+	\includegraphics[width=15cm,height=5cm]{/home/breezy/Downloads/Drive5.png}
+	\caption{Process of Conversion}
+	\label{fig:5.1}
+\end{figure} 
+
+\section{Tasks to do}
+As we are writing in pure SML so we have to do some tasks to make it done. The main task is in this process is to decode all type of instruction that is coming from the LLVM AST. Those things are the following:
+
+\begin{itemize}
+	\item \textbf{Module :} As discussed in the chapter 3 the LLVM programs are composed of Module's, each of which is a translation unit of the input programs. Each module consists of functions, global variables, and symbol table entries. Modules may be combined together with the LLVM linker, which merges function (and global variable) definitions, resolves forward declarations, and merges symbol table entries.
+	\item  \textbf{Global Variable :} In the Global Variable we have to decode the two things that are:
+	\subitem \textbf{Type} : Type can be of any supported type.
+	\subitem \textbf{Initializer} : Initializer is the initial value of the global variable.\newpage
+	\item  \textbf{Function :} In the function we have to decode the following listed things:
+	\begin{itemize}
+		\item \textbf{Return Type : } Return type can be decoded as of two types
+		\begin{itemize}
+			\item Int
+			\item Float
+		\end{itemize}
+		\item \textbf{Visiblity : } Visibility of the function can be of two types local or global
+		\begin{itemize}
+			\item Global (@) : It define the scope of the function to be globally, it can be access from everywhere where we want to access.
+			\item Local ("\%") It define the scope of the function to be globally, it can be access from the context in which it define.
+		\end{itemize}
+		\item \textbf{Name :} Name is the name of the function which have to decode to get the name of the function.
+		\item \textbf{Parameters} : Parameters are neede to decode to get the parameters of the function
+		\begin{itemize}
+			\item Type : Type can be decoded as of two types
+			\subitem Int
+			\subitem Float
+			\item Name : Name is the name of the Parameters which have to decode to get the name of the Parameters.
+		\end{itemize}
+		\item \textbf{Basic Block} : Basic block should be decode to get the instructions inside the function.It is described below.
+	\end{itemize}
+	\item \textbf{Basic Block : } Basic block can be decode as follows :
+	\begin{itemize}
+		\item \textbf{Entry : } Decoding entry will give us the name of the entry to the basic block.
+		\item \textbf{Instruction : } Decoding instruction will give us the type of instruction inside the basic block:
+			\subitem Add : Arithmetic operation. 
+			\subitem Sub : Arithmetic operation.
+			\subitem Mul : Arithmetic operation. 
+			\subitem Div : Arithmetic operation.
+			\subitem Eq : Logical operation.
+			\subitem NE : Logical operation.   
+			\subitem UGE : Logical operation.
+			\subitem UGT : Logical operation.
+			\subitem ULT : Logical operation. 
+			\subitem ULE : Logical operation.
+			\subitem SGT : Logical operation.
+			\subitem SGE : Logical operation.
+			\subitem SLT : Logical operation.
+			\subitem SLE : Logical operation.
+		\item \textbf{Terminator : } Decoding terminator will give us the terminator of the basic block and it can be of following types : 
+			\subitem Br : Break.
+			\subitem Ret : Return.
+	\end{itemize}
+\end{itemize}
+ 
+And one thing to be noticed that by using these all we can compose the if-else or for loop with them.\newpage
+
+\section{Commands To Run}
+To run the tool that we just made we have to execute the following commands :\newline
+
+\noindent\rule{12cm}{0.4pt}
+
+\begin{verbatim}
+	sml file_name.sml
+\end{verbatim}
+
+\noindent\rule{12cm}{0.4pt} \newline
+
+After running this command we will get the .ll file corresponding to the input AST file.
+
+\section{Verification}
+For verifying We can just compare the two files ast and .ll that we got.
+
+\chapter{Conclusion}
+This report described the motivations, design, and implementation of a new LLVM bindings end for the MLton SML compiler. The primary goal of the project was to see if leveraging the benefits an LLVM back-end could bring to a compiler would result in a new back-end design that was much simpler yet resulted in outputting excellent quality code, and was not tied to one specific architecture. \newline \newline Background information was presented on the broad design of MLton, its compilation pipeline, and execution model, to give understanding as to where LLVM would fit in the picture and what kind of work would have to be done. The design and implementation of the LLVM bindings was then presented, showing all of the challenges that were faced in its implementation and how they were overcome. 
+
+\chapter{Future Work}
+Although the project met many of the goals that it was set to accomplish, there is still plenty of  room  for  future  improvement,  as   noticed in the report it is not done for all the types and not for all instructions type. \newline
+
+The future work for this will have to add fully all the instruction types and all the types and also to convert any AST into the LLVM AST.
+ 
+
 \end{document}

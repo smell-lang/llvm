@@ -1,20 +1,26 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {chapter}{\numberline {2}Background}{9}
-\contentsline {section}{\numberline {2.1}Back-end Targets}{9}
-\contentsline {section}{\numberline {2.2}What is LLVM ?}{12}
-\contentsline {subsection}{\numberline {2.2.1}Representation}{13}
-\contentsline {subsection}{\numberline {2.2.2}SSA - Static Single Assignment}{14}
-\contentsline {subsection}{\numberline {2.2.3}Types}{15}
-\contentsline {subsection}{\numberline {2.2.4}Instructions}{15}
-\contentsline {section}{\numberline {2.3}Optimization of LLVM IR}{20}
-\contentsline {section}{\numberline {2.4}Related Work}{21}
-\contentsline {chapter}{\numberline {3}Capturing LLVM AST }{23}
-\contentsline {chapter}{\numberline {4}LLVM AST Into LLVM Binary Executables}{27}
-\contentsline {section}{\numberline {4.1}Why this??}{28}
-\contentsline {section}{\numberline {4.2}Work to do}{28}
-\contentsline {subsection}{\numberline {4.2.1}In SML}{28}
-\contentsline {subsection}{\numberline {4.2.2}In C}{30}
-\contentsline {section}{\numberline {4.3}Commands to Run}{31}
-\contentsline {section}{\numberline {4.4}Verification}{32}
-\contentsline {subsection}{\numberline {4.4.1}Commands to verify}{32}
-\contentsline {chapter}{\numberline {5}LLVM AST INTO LLVM IR}{33}
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Background}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Back-end Targets}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}What is LLVM ?}{13}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Representation}{14}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}SSA - Static Single Assignment}{15}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Types}{16}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Instructions}{16}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Optimization of LLVM IR}{21}{section.2.3}
+\contentsline {section}{\numberline {2.4}Related Work}{22}{section.2.4}
+\contentsline {chapter}{\numberline {3}Capturing LLVM AST }{23}{chapter.3}
+\contentsline {chapter}{\numberline {4}LLVM AST Into LLVM Binary Executables}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Why this??}{28}{section.4.1}
+\contentsline {section}{\numberline {4.2}Work to do}{28}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}In SML}{28}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}In C}{30}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Commands to Run}{31}{section.4.3}
+\contentsline {section}{\numberline {4.4}Verification}{32}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Commands to verify}{32}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}LLVM AST INTO LLVM IR}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Tasks to do}{34}{section.5.2}
+\contentsline {section}{\numberline {5.3}Commands To Run}{37}{section.5.3}
+\contentsline {section}{\numberline {5.4}Verification}{37}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}
+\contentsline {chapter}{\numberline {7}Future Work}{39}{chapter.7}
