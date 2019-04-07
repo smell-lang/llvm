@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  6 APR 2019 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.2)  7 APR 2019 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,320 +458,390 @@ LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 53.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 54.
- [2]
-
-Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 84.
-
-[3]
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 23.88496pt on input line 86.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 23.88496pt on input line 86.
- (./report.toc
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 1.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 3.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
+(Font)              scaled to size 19.91054pt on input line 48.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 48
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 3.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 3.
-
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 48
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 3.
-
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 48
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
+(Font)              scaled to size 16.58891pt on input line 48.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 3.
-
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 48
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 3.
-
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 48
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 3.
+(Font)              scaled to size 23.88496pt on input line 48.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 3.
+(Font)              scaled to size 19.91054pt on input line 48.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 3.
+(Font)              scaled to size 16.58891pt on input line 48.
+LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 49.
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 11.52008pt on input line 56.
+LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
+(Font)              scaled to size 11.52008pt on input line 56.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 11.52008pt on input line 59.
+ [2
+
+]
+LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
+(Font)              scaled to size 9.60007pt on input line 83.
+
+[3]
+
+Package hyperref Warning: Option `colorlinks' has already been used,
+(hyperref)                setting the option has no effect on input line 103.
+
+[4] (./report.toc
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 11.52008pt on input line 3.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 3.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 3.
 )
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
-
-[4
+ [5
 
 ] (./report.lof)
 \tf@lof=\write5
 \openout5 = `report.lof'.
 
- [5
+ [6
 
 ] (./report.lot)
 \tf@lot=\write6
 \openout6 = `report.lot'.
 
- [6
+ [7
 
 ]
 Chapter 1.
 
-Overfull \hbox (32.42903pt too wide) in paragraph at lines 94--100
+Overfull \hbox (32.42903pt too wide) in paragraph at lines 113--119
 \T1/mdbch/m/n/14.4 ded micro-controllers through to mas-sively par-al-lel high-
 performance
  []
 
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 101.
-</home/breezy/Downloads/Drive.png, id=178, 713.66624pt x 241.90375pt>
+(Font)              scaled to size 13.82408pt on input line 120.
+</home/breezy/Downloads/Drive.png, id=185, 713.66624pt x 241.90375pt>
 File: /home/breezy/Downloads/Drive.png Graphic file (type png)
 <use /home/breezy/Downloads/Drive.png>
 Package pdftex.def Info: /home/breezy/Downloads/Drive.png  used on input line 1
-16.
+35.
 (pdftex.def)             Requested size: 379.41751pt x 128.60701pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--127
+Underfull \hbox (badness 10000) in paragraph at lines 125--146
 
  []
 
-[7
+[8
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
-(Font)              scaled to size 9.60007pt on input line 138.
- [8
+ [9 </home/breezy/Downloads/Drive.png>] [10
 design size mismatch in local font md-chro8t in virtual font mdbchro8t.vf ignor
-ed. </home/breezy/Downloads/Drive.png>] [9]
+ed.]
 Chapter 2.
-[10
+[11
 
 ]
-Overfull \hbox (5.1231pt too wide) in paragraph at lines 182--184
+Overfull \hbox (5.1231pt too wide) in paragraph at lines 201--203
 \T1/mdbch/m/n/14.4 like Java and C sharp, and for script-ing lan-guages like Py
 thon
  []
 
-[11]
-Overfull \hbox (13.58371pt too wide) in paragraph at lines 184--188
+[12]
+Overfull \hbox (13.58371pt too wide) in paragraph at lines 203--207
 \T1/mdbch/m/n/14.4 as-sem-bly. High level as-sem-bly lan-guages are low-level e
 nough
  []
 
 
-Overfull \hbox (0.75595pt too wide) in paragraph at lines 184--188
+Overfull \hbox (0.75595pt too wide) in paragraph at lines 203--207
 \T1/mdbch/m/n/14.4 ming lan-guages, but also high-level enough to ab-stract awa
 y
  []
 
 
-Overfull \hbox (5.9169pt too wide) in paragraph at lines 194--195
+Overfull \hbox (5.9169pt too wide) in paragraph at lines 213--214
 []\T1/mdbch/m/n/14.4 Converting the LLVM AST into LLVM bi-nary ex-e-cutable whi
 ch
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
 [13]
-</home/breezy/Downloads/Drive1.png, id=213, 538.01pt x 411.5375pt>
-File: /home/breezy/Downloads/Drive1.png Graphic file (type png)
-<use /home/breezy/Downloads/Drive1.png>
-Package pdftex.def Info: /home/breezy/Downloads/Drive1.png  used on input line 
-201.
-(pdftex.def)             Requested size: 379.41751pt x 290.22816pt.
-
-Overfull \hbox (0.16988pt too wide) in paragraph at lines 210--211
-\T1/mdbch/m/n/14.4 vides the com-mand line tools llvm-as which as-sem-bles LLVM
-
- []
-
-[14 </home/breezy/Downloads/Drive1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
+[14]
+</home/breezy/Downloads/Drive1.png, id=219, 538.01pt x 411.5375pt>
+File: /home/breezy/Downloads/Drive1.png Graphic file (type png)
+<use /home/breezy/Downloads/Drive1.png>
+Package pdftex.def Info: /home/breezy/Downloads/Drive1.png  used on input line 
+220.
+(pdftex.def)             Requested size: 379.41751pt x 290.22816pt.
+
+Overfull \hbox (0.16988pt too wide) in paragraph at lines 229--230
+\T1/mdbch/m/n/14.4 vides the com-mand line tools llvm-as which as-sem-bles LLVM
+
+ []
+
+[15 </home/breezy/Downloads/Drive1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 15.43687pt on input line 221.
+(Font)              scaled to size 15.43687pt on input line 240.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--270
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 [16]
-Overfull \hbox (2.24089pt too wide) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 268.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 268.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 268.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 9.60007pt on input line 270.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--289
+
+ []
+
+[17]
+Overfull \hbox (2.24089pt too wide) in paragraph at lines 290--291
 []\T1/mdbch/m/n/14.4 The ter-mi-na-tor in-struc-tions are: `ret', `br', `switch
 ', `in-di-rectbr',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
-
- []
-
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--299
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 305--308
+Underfull \hbox (badness 10000) in paragraph at lines 307--309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--321
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 333--335
+Underfull \hbox (badness 10000) in paragraph at lines 324--327
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--340
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 [21]
-Overfull \hbox (2.2821pt too wide) in paragraph at lines 346--347
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
+
+ []
+
+[22]
+Overfull \hbox (2.2821pt too wide) in paragraph at lines 365--366
 \T1/mdbch/m/n/14.4 span mul-ti-ple mod-ules. LTO works by hav-ing a LTO-aware l
 inker
  []
 
-[22]
+[23]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
-
- []
-
-</home/breezy/Downloads/Drive3.png, id=254, 212.795pt x 181.67876pt>
-File: /home/breezy/Downloads/Drive3.png Graphic file (type png)
-<use /home/breezy/Downloads/Drive3.png>
-Package pdftex.def Info: /home/breezy/Downloads/Drive3.png  used on input line 
-374.
-(pdftex.def)             Requested size: 199.17984pt x 85.35852pt.
-[23
-
- </home/breezy/Downloads/Drive3.png>] [24]
-Overfull \hbox (9.47336pt too wide) in paragraph at lines 389--390
-\T1/mdbch/m/n/14.4 sur-rounded by braces and pre-ceded by an ex-cla-ma-tion poi
-nt).
  []
 
 
@@ -779,208 +849,228 @@ Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
  []
 
+</home/breezy/Downloads/Drive3.png, id=260, 212.795pt x 181.67876pt>
+File: /home/breezy/Downloads/Drive3.png Graphic file (type png)
+<use /home/breezy/Downloads/Drive3.png>
+Package pdftex.def Info: /home/breezy/Downloads/Drive3.png  used on input line 
+393.
+(pdftex.def)             Requested size: 199.17984pt x 85.35852pt.
+[24
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+ </home/breezy/Downloads/Drive3.png>] [25]
+Overfull \hbox (9.47336pt too wide) in paragraph at lines 408--409
+\T1/mdbch/m/n/14.4 sur-rounded by braces and pre-ceded by an ex-cla-ma-tion poi
+nt).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--404
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 419--423
 
  []
 
-[25]
-Overfull \hbox (6.93747pt too wide) in paragraph at lines 409--410
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
+
+ []
+
+[26]
+Overfull \hbox (6.93747pt too wide) in paragraph at lines 428--429
 \T1/mdbch/m/n/14.4 Now our next step is to de-sign and im-ple-ment the code/alg
 orithm
  []
 
-[26]
+[27]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
-[27
+[28
 
-] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 486--487
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
-</home/breezy/Downloads/Drive4.png, id=286, 635.37375pt x 213.79875pt>
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
+
+</home/breezy/Downloads/Drive4.png, id=292, 635.37375pt x 213.79875pt>
 File: /home/breezy/Downloads/Drive4.png Graphic file (type png)
 <use /home/breezy/Downloads/Drive4.png>
 Package pdftex.def Info: /home/breezy/Downloads/Drive4.png  used on input line 
-489.
+508.
 (pdftex.def)             Requested size: 426.79134pt x 143.6163pt.
 
-Overfull \hbox (47.37383pt too wide) in paragraph at lines 489--490
+Overfull \hbox (47.37383pt too wide) in paragraph at lines 508--509
 [][] 
  []
 
-[30 </home/breezy/Downloads/Drive4.png>]
-Overfull \hbox (20.1476pt too wide) in paragraph at lines 512--512
+[31 </home/breezy/Downloads/Drive4.png>]
+Overfull \hbox (20.1476pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -std=c++0x -fuse-ld=gold -Wl,--no-keep-files-mapped[] 
  []
 
 
-Overfull \hbox (20.1476pt too wide) in paragraph at lines 512--512
+Overfull \hbox (20.1476pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -Wl,--no-map-whole-files -fPIC -fvisibility-inlines[] 
  []
 
 
-Overfull \hbox (20.1476pt too wide) in paragraph at lines 512--512
+Overfull \hbox (20.1476pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -hidden -Werror=date-time -std=c++11 -Wall -W -Wno-[] 
  []
 
 
-Overfull \hbox (4.47838pt too wide) in paragraph at lines 512--512
+Overfull \hbox (4.47838pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 unused-parameter -Wwrite-strings -Wcast-qual -Wno[] 
  []
 
 
-Overfull \hbox (20.1476pt too wide) in paragraph at lines 512--512
+Overfull \hbox (20.1476pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -missing-field-initializers-pedantic -Wno-long-long[] 
  []
 
 
-Overfull \hbox (12.31299pt too wide) in paragraph at lines 512--512
+Overfull \hbox (12.31299pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -Wno-maybe-uninitialized -Wdelete-non-virtual-dtor[] 
  []
 
 
-Overfull \hbox (27.98221pt too wide) in paragraph at lines 512--512
+Overfull \hbox (27.98221pt too wide) in paragraph at lines 531--531
 []\T1/cmtt/m/n/14.4 -Wno-comment -ffunction-sections -fdata-sections -O2[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 539--540
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 [32]
-Chapter 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+Underfull \hbox (badness 10000) in paragraph at lines 558--559
 
  []
 
-[33
+[33]
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
+
+ []
+
+[34
 
 ]
-</home/breezy/Downloads/Drive5.png, id=306, 367.3725pt x 92.345pt>
+</home/breezy/Downloads/Drive5.png, id=312, 367.3725pt x 92.345pt>
 File: /home/breezy/Downloads/Drive5.png Graphic file (type png)
 <use /home/breezy/Downloads/Drive5.png>
 Package pdftex.def Info: /home/breezy/Downloads/Drive5.png  used on input line 
-550.
+569.
 (pdftex.def)             Requested size: 426.81944pt x 142.26526pt.
 
-Overfull \hbox (47.40193pt too wide) in paragraph at lines 550--551
+Overfull \hbox (47.40193pt too wide) in paragraph at lines 569--570
 [][] 
  []
 
 
-Overfull \hbox (14.53735pt too wide) in paragraph at lines 559--560
+Overfull \hbox (14.53735pt too wide) in paragraph at lines 578--579
 \T1/mdbch/m/n/14.4 may be com-bined to-gether with the LLVM linker, which merge
 s
  []
 
-[34 </home/breezy/Downloads/Drive5.png>] [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 612--613
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
-
- []
-
-[37]
-Chapter 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
-
- []
-
-[38
-
-]
-Chapter 7.
-
+[35 </home/breezy/Downloads/Drive5.png>] [36] [37]
 Underfull \hbox (badness 10000) in paragraph at lines 631--632
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 636.
+
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
+
+ []
+
+[38]
+Chapter 6.
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
+
+ []
+
 [39
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 636.
+Chapter 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--651
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 655.
+[40
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 655.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 636.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 636.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 655.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 655.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: AADC63D638EB39EC8AE280D2BB798731;1556.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 636.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 655.
  ) 
 Here is how much of TeX's memory you used:
- 7338 strings out of 492982
- 107998 string characters out of 6134897
+ 7389 strings out of 492982
+ 108819 string characters out of 6134897
  182954 words of memory out of 5000000
- 10699 multiletter control sequences out of 15000+600000
- 53989 words of font info for 74 fonts, out of 8000000 for 9000
+ 10743 multiletter control sequences out of 15000+600000
+ 77761 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,7n,37p,1900b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/texlive/texmf-dist/fo
 nts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/bitstrea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstr
-ea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/chart
-er/bchri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdb
-ch/md-chb8t.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/md
-bch/md-chr7y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/m
-dbch/md-chr8t.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on report.pdf (39 pages, 190177 bytes).
+1/bitstrea/charter/bchbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitst
+rea/charter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/char
+ter/bchr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr
+i8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-c
+hb8t.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-
+chr7y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md
+-chr8t.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb>
+Output written on report.pdf (40 pages, 205832 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 75 named destinations out of 1000 (max. 500000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
