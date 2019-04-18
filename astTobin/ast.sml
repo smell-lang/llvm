@@ -1040,7 +1040,7 @@ structure ast = struct
                            | Load of 
           {
                 volatile : bool,
-                address : Name,
+                address : Operand,
                 maybeAtomicity : Atomicity option,
                 alignment : IntInf.int,
                 metadata : InstructionMetadata

@@ -12,7 +12,7 @@ use "ast.sml";
 
 val outputFile = "test.ll";
 
-val defaultBasicblock0 = ast.BasicBlock (ast.Name "entry" , [ (ast.Named ("%sum" , ast.Sub { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("%cmp" , ast.ICmp { iPredicate = ast.ULT, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("%ifcond" , ast.ICmp { iPredicate = ast.NE, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("%phic" , ast.Phi { types = ast.IntegerType 32,incomingValues = [(ast.LocalReference (ast.IntegerType 32, ast.Name "b") ,ast.Name "entry"), (ast.LocalReference (ast.IntegerType 32, ast.Name "c") ,ast.Name "loop") ], metadata = ast.InstructionMetadata nil  } ))] , ast.Do (ast.CondBr { condition = ast.LocalReference (ast.IntegerType 32, ast.Name "b") ,trueDest = ast.Name "cond", falseDest = ast.Name "cond", metadata = ast.InstructionMetadata nil } ) ); 
+val defaultBasicblock0 = ast.BasicBlock (ast.Name "entry" , [ (ast.Named ("%sum" , ast.Sub { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("%cmp" , ast.ICmp { iPredicate = ast.ULT, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) , (ast.Named ("%ifcond" , ast.ICmp { iPredicate = ast.NE, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "ifcond") , metadata = ast.InstructionMetadata nil } ) ) ] , ast.Do (ast.CondBr { condition = ast.LocalReference (ast.IntegerType 32, ast.Name "b") ,trueDest = ast.Name "cond", falseDest = ast.Name "cond", metadata = ast.InstructionMetadata nil } ) ); 
 
 val defaultBasicblock1 = ast.BasicBlock (ast.Name "cond" , [ (ast.Named ("%sum" , ast.Mul { nsw = true, nuw = true, operand0 = ast.LocalReference (ast.IntegerType 32, ast.Name "a") , operand1 = ast.LocalReference (ast.IntegerType 32, ast.Name "b") , metadata = ast.InstructionMetadata nil } ) ) ] , ast.Do (ast.Ret { returnOperand = SOME (ast.LocalReference (ast.FloatingType (ast.HalfFP), ast.Name "sum") ), metadata = ast.InstructionMetadata nil } ) ); 
 
@@ -76,6 +76,6 @@ val defaultModule = ast.Module {
         modulename = "dd", 
         moduleSourceFilename = "ss", 
         moduleDatalayout = NONE,
-        moduleTargetTriple = NONE,
-        moduleDefination = [ast.GlobalDefinition Var1,ast.GlobalDefinition Var2,ast.GlobalDefinition defaultFunction]
-      };
+        moduleTargetTriple = SOME "aaa",
+        moduleDefination = [ast.GlobalDefinition Var1,ast.GlobalDefinition Var2(*,ast.GlobalDefinition defaultFunction*)]
+              };

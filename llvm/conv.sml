@@ -11,8 +11,8 @@
 use "test.sml";
 
 signature prettyPrinting = sig
-  type t
-  val conv_mod : ast.Module -> t
+    type t
+    val conv_mod : ast.Module -> t
 end
 
 structure convert:prettyPrinting = struct 
